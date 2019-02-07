@@ -3,7 +3,7 @@ import DrumPad from "./DrumPad";
 
 const DrumPadContainer = props => {
   return (
-    <section id="drumpad-container">
+    <React.Fragment>
       <DrumPad
         hotKey="Q"
         soundName="Heater-1"
@@ -67,7 +67,7 @@ const DrumPadContainer = props => {
         pressedKey={props.pressedKey}
         writeSoundNameToDisplay={props.writeSoundNameToDisplay}
       />
-    </section>
+    </React.Fragment>
   );
 };
 

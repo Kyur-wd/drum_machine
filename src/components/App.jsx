@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "./Header";
 import DrumPadContainer from "./DrumPadContainer";
 
 class App extends Component {
@@ -32,14 +33,19 @@ class App extends Component {
 
   render() {
     return (
-      <main id="drum-machine">
-        <output id="display">{this.state.lastPlayedSoundName}</output>
-        {/*VolumeSlider hier*/}
-        <DrumPadContainer
-          pressedKey={this.state.pressedKey}
-          writeSoundNameToDisplay={this.writeSoundNameToDisplay}
-        />
-      </main>
+      <React.Fragment>
+        <Header />
+        <main id="drum-machine-container">
+          <div id="drum-machine">
+            <output id="display">{this.state.lastPlayedSoundName}</output>
+            {/*VolumeSlider hier*/}
+            <DrumPadContainer
+              pressedKey={this.state.pressedKey}
+              writeSoundNameToDisplay={this.writeSoundNameToDisplay}
+            />
+          </div>
+        </main>
+      </React.Fragment>
     );
   }
 }
