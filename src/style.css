@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Staatliches", cursive;
 }
 
 body {
@@ -11,12 +12,12 @@ body {
 #heading {
   text-align: center;
   font-size: 4em;
-  margin: 100px 0;
+  margin: 100px 20px;
   padding: 30px 0;
   color: whitesmoke;
-  text-shadow: 0px 5px 0 rgb(26, 45, 99);
   border-top: 2px dashed whitesmoke;
   border-bottom: 2px dashed whitesmoke;
+  letter-spacing: 5px;
 }
 
 #drum-machine-container {
@@ -75,4 +76,75 @@ body {
   border-radius: 5px;
   color: whitesmoke;
   font-size: 1.3em;
+}
+
+#slider {
+  grid-column-start: span 3;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgb(26, 45, 99);
+  outline: none;
+  transition: background-color 0.2s;
+  border-radius: 5px;
+  height: 10px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px 0;
+}
+
+#slider:hover {
+  background-color: rgb(42, 72, 155);
+}
+
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  border: none;
+  background-color: whitesmoke;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+#slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  background-color: whitesmoke;
+  transition: box-shadow 0.2s;
+}
+
+#slider::-moz-range-thumb:hover {
+  box-shadow: 0px 0px 5px lightgrey;
+}
+
+#slider::-webkit-slider-thumb:hover {
+  box-shadow: 0px 0px 5px lightgrey;
+}
+
+@media (max-width: 660px) {
+  #heading {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 400px) {
+  #heading {
+    font-size: 1.3em;
+    margin: 30px 10px;
+  }
+
+  #drum-machine {
+    grid-template-columns: repeat(3, 50px);
+  }
+
+  .drum-pad {
+    width: 50px;
+    height: 50px;
+  }
 }

@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import DrumPadContainer from "./DrumPadContainer";
+import VolumeSlider from "./VolumeSlider";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      volume: 0.5,
       pressedKey: "",
       lastPlayedSoundName: ""
     };
 
     this.writeSoundNameToDisplay = this.writeSoundNameToDisplay.bind(this);
+    this.adjustVolume = this.adjustVolume.bind(this);
   }
 
   // EventListener: Speichere gedrückten Hotkey in State
@@ -31,6 +34,12 @@ class App extends Component {
     this.setState({ lastPlayedSoundName: playedSoundName, pressedKey: "" });
   }
 
+  adjustVolume(e) {
+    let { value: volume } = e.target;
+    volume = volume / 100;
+    this.setState({ volume });
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -38,10 +47,14 @@ class App extends Component {
         <main id="drum-machine-container">
           <div id="drum-machine">
             <output id="display">{this.state.lastPlayedSoundName}</output>
-            {/*VolumeSlider hier*/}
+            <VolumeSlider
+              adjustVolume={this.adjustVolume}
+              volume={this.state.volume}
+            />
             <DrumPadContainer
               pressedKey={this.state.pressedKey}
               writeSoundNameToDisplay={this.writeSoundNameToDisplay}
+              volume={this.state.volume}
             />
           </div>
         </main>
