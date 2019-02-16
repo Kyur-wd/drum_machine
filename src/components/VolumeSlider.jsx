@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setVolume } from "../actionCreators";
 
 const VolumeSlider = props => {
   return (
@@ -13,4 +15,21 @@ const VolumeSlider = props => {
   );
 };
 
-export default VolumeSlider;
+const mapStateToProps = state => {
+  return {
+    volume: state.volume
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    adjustVolume: function(e) {
+      dispatch(setVolume(e.target.value / 100));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VolumeSlider);
