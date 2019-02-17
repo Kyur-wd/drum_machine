@@ -1,3 +1,3 @@
 # drum_machine
 
-https://kyuranx.github.io/drum_machine/
+https://kyur-wd.github.io/drum_machine/
